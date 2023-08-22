@@ -35,7 +35,43 @@
 # - BulletTextV()
 #-------------------------------------------------------------------------
 
-def text_unformatted(str text):
+def range_slider(str label, float v1, float v2, float v_min, float v_max, str format):
+    """"Range sliders. Taken from:
+     https://github.com/bkaradzic/bgfx/blob/master/3rdparty/dear-imgui/widgets/range_slider.inl
+
+     .. visual-example::
+        :title: range slider
+        :height: 100
+        :width: 200
+        :auto_layout:
+
+        imgui.begin("example range slider")
+        imgui.range_slider("picker", 0.5, 0.7, 0.0, 1.0)
+        imgui.end()
+    Args:
+        label (str): Label
+        v1 (float): picker place one
+        v2 (float): picker place two
+        v_min (float): picker min
+        v_max: (float) picker max
+        format (str): display format
+    .. wraps::
+        RangeSliderFloat(const char* label, float* v1, float* v2, float v_min, float v_max, const char* display_format = "(%.3f, %.3f)", float power = 1.0f);
+    """
+    cdef float v1_value = v1
+    cdef float v2_value = v2
+
+    changed = cimgui.RangeSliderFloat(_bytes(label),
+        &v1_value,
+        &v2_value,
+        v_min,
+        v_max,
+        _bytes(format),
+        1.0)
+    
+    return changed, v1_value, v2_value
+
+def text_unformatted(str text): 
     """Big area text display - the size is defined by it's container.
     Recommended for long chunks of text.
 

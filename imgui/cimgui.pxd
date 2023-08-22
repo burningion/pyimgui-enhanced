@@ -1233,6 +1233,14 @@ cdef extern from "imgui.h" namespace "ImGui":
     void BulletText(const char*, ...) except +  # ✓
     # BulletTextV ?
 
+    bool RangeSliderFloat(const char*, 
+                        float* v1, 
+                        float* v2, 
+                        float v_min, 
+                        float v_max, 
+                        const char* display_format, 
+                        float power) except + # ✓
+    
     # ====
     # Widgets: Main
     bool Button( # ✓

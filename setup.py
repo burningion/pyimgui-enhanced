@@ -90,6 +90,7 @@ def extension_sources(path):
             'imgui-cpp/imgui_demo.cpp',
             'imgui-cpp/imgui_widgets.cpp',
             'imgui-cpp/imgui_tables.cpp',
+            'imgui-cpp/widgets/range_slider.cpp'
             'config-cpp/py_imconfig.cpp'
         ]
 

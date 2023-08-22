@@ -657,10 +657,8 @@ cdef extern from "imgui_internal.h" namespace "ImGui":
     void GcCompactTransientWindowBuffers(ImGuiWindow* window) except + # ?
     void GcAwakeTransientWindowBuffers(ImGuiWindow* window) except + # ?
 
-   
-    
-    
-    
+    bool RangeSliderFloat(const char* label, float* v1, float* v2, float v_min, float v_max, const char* display_format, float power);
+
     
     
     
